@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마이리딩수학 — 아이들의 생에 개입하는 가장 따뜻한 프로페셔널</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --navy:#0B1E3D;--navy2:#162B52;
+  --teal:#1D9E75;--teal2:#5DCAA5;
+  --amber:#EF9F27;--amber2:#FAC775;
+  --warm:#C17B3F;--warm2:#E8A96A;
+  --cream:#FAF8F3;--cream2:#F3F0E8;--cream3:#EDE8DC;
+  --text:#1a1a1a;--muted:#6b7280;--border:rgba(0,0,0,0.08);
+}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(250,248,243,0.96);backdrop-filter:blur(16px);border-bottom:0.5px solid var(--border);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 6%}
+.nav-logo{display:flex;align-items:center;gap:9px;font-family:'Noto Serif KR',serif;font-weight:700;font-size:16px;color:var(--navy);text-decoration:none}
+.nav-dot{width:8px;height:8px;background:var(--teal);border-radius:50%}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;font-size:13px;color:var(--muted);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy) !important;color:#fff !important;padding:8px 20px;border-radius:7px;font-weight:700 !important;transition:background .2s !important}
+.nav-cta:hover{background:var(--teal) !important}
+.nav-back{font-size:12px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:5px}
+.nav-back:hover{color:var(--navy)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 6% 80px;position:relative;overflow:hidden;background:var(--navy)}
+.hero-pattern{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.hero-glow1{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(29,158,117,0.09),transparent 70%);top:-100px;right:-100px;pointer-events:none}
+.hero-glow2{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(193,123,63,0.07),transparent 70%);bottom:-80px;left:-80px;pointer-events:none}
+.hero-inner{max-width:960px;margin:0 auto;width:100%;text-align:center;position:relative}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,0.15);border:0.5px solid rgba(93,202,165,0.3);color:var(--teal2);font-size:11px;font-weight:700;padding:6px 16px;border-radius:20px;margin-bottom:28px;letter-spacing:0.8px}
+.hero-premise{font-family:'Noto Serif KR',serif;font-size:clamp(13px,1.5vw,16px);color:rgba(255,255,255,0.45);letter-spacing:2px;margin-bottom:16px;font-weight:400}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(28px,4vw,56px);font-weight:700;color:#fff;line-height:1.38;margin-bottom:12px;letter-spacing:-0.5px}
+.hero-title .q{color:var(--teal2)}
+.hero-title .q2{color:var(--amber2)}
+.hero-divider{width:48px;height:2px;background:var(--teal);margin:24px auto;border-radius:2px}
+.hero-sub{font-size:clamp(14px,1.6vw,17px);color:rgba(255,255,255,0.58);line-height:1.9;margin-bottom:44px;max-width:600px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.btn-teal{background:var(--teal);color:#fff;padding:15px 36px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s,transform .15s;display:inline-block}
+.btn-teal:hover{background:var(--teal2);color:var(--navy);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:rgba(255,255,255,0.72);padding:15px 36px;border-radius:8px;font-size:14px;font-weight:500;border:1.5px solid rgba(255,255,255,0.18);text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);color:#fff}
+/* 핵심 한 줄 카드들 */
+.hero-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero-pill{background:rgba(255,255,255,0.06);border:0.5px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);font-size:12px;padding:6px 16px;border-radius:20px}
+
+/* PREMISE BAND */
+.premise-band{background:var(--cream3);padding:28px 6%;border-bottom:0.5px solid var(--border)}
+.premise-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.premise-item{padding:0 32px;display:flex;align-items:flex-start;gap:14px}
+.premise-item:first-child{border-right:0.5px solid var(--border);padding-left:0}
+.premise-num{font-family:'Noto Serif KR',serif;font-size:28px;font-weight:700;color:var(--teal);line-height:1;flex-shrink:0;margin-top:2px}
+.premise-text{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--navy);line-height:1.75;font-style:italic}
+.premise-label{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+
+/* SECTIONS */
+section{padding:96px 6%}
+.sec-inner{max-width:1080px;margin:0 auto}
+.stag{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.stit{font-family:'Noto Serif KR',serif;font-size:clamp(22px,2.8vw,36px);font-weight:700;color:var(--navy);line-height:1.42;margin-bottom:14px}
+.ssub{color:var(--muted);font-size:15px;line-height:1.88;margin-bottom:52px;max-width:560px}
+
+/* SPACE SECTION — 제3의 공간 */
+.space-section{background:#fff}
+.space-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.space-left{}
+.space-quote-big{font-family:'Noto Serif KR',serif;font-size:clamp(18px,2.2vw,26px);font-weight:700;color:var(--navy);line-height:1.6;margin-bottom:20px;position:relative;padding-left:20px}
+.space-quote-big::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--teal);border-radius:2px}
+.space-desc{font-size:14px;color:var(--muted);line-height:1.88;margin-bottom:28px}
+.space-chips{display:flex;flex-wrap:wrap;gap:8px}
+.space-chip{background:var(--cream2);color:var(--navy);font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;border:0.5px solid var(--border)}
+.space-right{}
+.space-cards{display:flex;flex-direction:column;gap:14px}
+.space-card{background:var(--cream);border-radius:12px;border:0.5px solid var(--border);padding:20px;display:flex;align-items:flex-start;gap:14px;transition:transform .2s}
+.space-card:hover{transform:translateX(4px)}
+.space-card-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.space-card-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.space-card-desc{font-size:12px;color:var(--muted);line-height:1.7}
+
+/* VALUES — 선생님 9가지 */
+.values-section{background:var(--cream)}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.val-card{background:#fff;border-radius:14px;border:0.5px solid var(--border);padding:24px 20px;transition:transform .2s,box-shadow .2s}
+.val-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(11,30,61,0.07)}
+.val-num{font-family:'Noto Serif KR',serif;font-size:32px;font-weight:700;color:var(--cream3);line-height:1;margin-bottom:10px}
+.val-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.5}
+.val-desc{font-size:12.5px;color:var(--muted);line-height:1.78}
+.val-highlight{display:inline;background:rgba(29,158,117,0.1);color:var(--teal);font-weight:700;padding:1px 4px;border-radius:3px}
+
+/* STUDENT VALUES */
+.student-section{background:#fff}
+.student-premise{background:var(--navy);border-radius:14px;padding:24px 28px;margin-bottom:40px;text-align:center}
+.student-premise-text{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:#fff;line-height:1.65}
+.student-premise-text span{color:var(--teal2)}
+.student-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.student-card{background:var(--cream);border-radius:14px;border:0.5px solid var(--border);padding:22px 18px;transition:transform .2s}
+.student-card:hover{transform:translateY(-3px)}
+.s-num{font-family:'Noto Serif KR',serif;font-size:28px;font-weight:700;color:var(--cream3);line-height:1;margin-bottom:8px}
+.s-title{font-size:13.5px;font-weight:700;color:var(--navy);margin-bottom:7px;line-height:1.5}
+.s-desc{font-size:12px;color:var(--muted);line-height:1.75}
+
+/* CLOSING QUOTE */
+.closing-quote-section{background:var(--navy);padding:80px 6%}
+.cq-inner{max-width:760px;margin:0 auto;text-align:center}
+.cq-top{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
+.cq-text{font-family:'Noto Serif KR',serif;font-size:clamp(18px,2.5vw,28px);font-weight:700;color:#fff;line-height:1.7;margin-bottom:14px}
+.cq-text .hl{color:var(--teal2)}
+.cq-sub{color:rgba(255,255,255,0.45);font-size:14px;line-height:1.85}
+
+/* CTA */
+.cta-section{background:var(--cream2);padding:80px 6%;text-align:center}
+.cta-inner{max-width:580px;margin:0 auto}
+.cta-title{font-family:'Noto Serif KR',serif;font-size:clamp(20px,2.4vw,30px);font-weight:700;color:var(--navy);line-height:1.48;margin-bottom:14px}
+.cta-sub{color:var(--muted);font-size:14px;line-height:1.85;margin-bottom:36px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-navy{background:var(--navy);color:#fff;padding:14px 34px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s,transform .15s}
+.btn-navy:hover{background:var(--teal);transform:translateY(-2px)}
+.btn-ghost-navy{background:transparent;color:var(--navy);padding:14px 34px;border-radius:8px;font-size:14px;font-weight:500;border:1.5px solid rgba(11,30,61,0.18);text-decoration:none;transition:border-color .2s}
+.btn-ghost-navy:hover{border-color:var(--teal);color:var(--teal)}
+
+/* FOOTER */
+footer{background:#060d1c;padding:36px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.foot-logo{font-family:'Noto Serif KR',serif;font-weight:700;font-size:15px;color:rgba(255,255,255,0.72)}
+.foot-logo span{color:var(--teal2)}
+.foot-copy{color:rgba(255,255,255,0.28);font-size:12px}
+
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fu{animation:fadeUp .72s ease forwards}
+.d1{animation-delay:.1s;opacity:0}.d2{animation-delay:.22s;opacity:0}.d3{animation-delay:.36s;opacity:0}.d4{animation-delay:.5s;opacity:0}.d5{animation-delay:.62s;opacity:0}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-dot"></span>마이리딩수학</a>
+  <ul class="nav-links">
+    <li><a href="#space">우리의 공간</a></li>
+    <li><a href="#teachers">선생님</a></li>
+    <li><a href="#students">학생</a></li>
+    <li><a href="#contact" class="nav-cta">상담 문의</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-pattern"></div>
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-tag fu">🏛️ 마이리딩수학의 대전제</div>
+    <div class="hero-premise fu d1">대전제 1</div>
+    <h1 class="hero-title fu d2">
+      <span class="q">"12시는 12시 1분이 아니다."</span>
+    </h1>
+    <div class="hero-divider fu d3"></div>
+    <p class="hero-sub fu d3">
+      약속의 무게를 아는 사람들이 모인 고결한 공간.<br>
+      우리는 아이들의 생에 개입하는<br>
+      <strong style="color:#fff;font-weight:700">가장 따뜻한 프로페셔널입니다.</strong>
+    </p>
+    <div class="hero-btns fu d4">
+      <a href="#contact" class="btn-teal">상담 문의하기</a>
+      <a href="#space" class="btn-outline">우리 공간 알아보기</a>
+    </div>
+    <div class="hero-pills fu d5">
+      <span class="hero-pill">수학·국어 통합 교육</span>
+      <span class="hero-pill">사고 구조를 짜는 힘</span>
+      <span class="hero-pill">학교와 집의 브릿지</span>
+      <span class="hero-pill">제3의 공간</span>
+    </div>
+  </div>
+</section>
+
+<!-- 두 번째 대전제 밴드 -->
+<div class="premise-band">
+  <div class="premise-inner">
+    <div class="premise-item">
+      <div class="premise-num">01</div>
+      <div>
+        <div class="premise-label">대전제 1 · 선생님에게</div>
+        <div class="premise-text">"12시는 12시 1분이 아니다."<br>약속의 무게를 아는 고결한 공간.</div>
+      </div>
+    </div>
+    <div class="premise-item">
+      <div class="premise-num">02</div>
+      <div>
+        <div class="premise-label">대전제 2 · 학생에게</div>
+        <div class="premise-text">"공부는 나를 믿기 위한 게임이고,<br>몰입은 그 게임의 입장료이다."</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 제3의 공간 -->
+<section class="space-section" id="space">
+  <div class="sec-inner">
+    <div class="space-grid">
+      <div class="space-left">
+        <div class="stag">우리의 공간</div>
+        <div class="space-quote-big">
+          학교도 집도 아닌,<br>
+          아이가 진짜 자신이 되는 곳.
+        </div>
+        <p class="space-desc">
+          학교는 진도와 규율이 있고, 집은 안전하지만 구조가 없습니다.<br>
+          마이리딩수학은 그 사이 어딘가 — 아이가 스스로 생각하고, 실패하고, 다시 짜는 브릿지 공간입니다.<br><br>
+          사회학자 레이 올든버그가 말한 '제3의 공간'처럼, 이곳은 단순한 학원이 아닙니다.
+          아이의 사고 회로를 설계하는 곳입니다.
+        </p>
+        <div class="space-chips">
+          <span class="space-chip">🏫 학교 → 브릿지</span>
+          <span class="space-chip">⬡ 마이리딩수학</span>
+          <span class="space-chip">🏠 집 → 브릿지</span>
+        </div>
+      </div>
+      <div class="space-right">
+        <div class="space-cards">
+          <div class="space-card">
+            <div class="space-card-ico" style="background:rgba(29,158,117,0.1)">✏️</div>
+            <div>
+              <div class="space-card-title">정답지가 아닌 힌트 전문가</div>
+              <div class="space-card-desc">아이의 내면에는 이미 모든 가능성이 있습니다. 우리는 정교한 힌트로 아이의 뇌가 스스로 폭발하게 만드는 예술가입니다.</div>
+            </div>
+          </div>
+          <div class="space-card">
+            <div class="space-card-ico" style="background:rgba(239,159,39,0.1)">🧩</div>
+            <div>
+              <div class="space-card-title">식을 세우는 힘</div>
+              <div class="space-card-desc">수학은 논리의 건축입니다. 식의 구조를 세우고 그 의미를 문장으로 쓸 수 있을 때, 그게 진짜 실력입니다.</div>
+            </div>
+          </div>
+          <div class="space-card">
+            <div class="space-card-ico" style="background:rgba(11,30,61,0.07)">📖</div>
+            <div>
+              <div class="space-card-title">수와 언어의 통합</div>
+              <div class="space-card-desc">세상은 수(數)와 언어로 되어 있습니다. 수학과 국어를 통합하여 사고 구조 자체를 키웁니다.</div>
+            </div>
+          </div>
+          <div class="space-card">
+            <div class="space-card-ico" style="background:rgba(29,158,117,0.1)">🕊️</div>
+            <div>
+              <div class="space-card-title">따뜻한 프로페셔널</div>
+              <div class="space-card-desc">흘러가는 시간 속에서, 아이에게는 '공부가 재미있을 수 있게 도와준 좋은 어른'으로 남습니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 선생님 9가지 -->
+<section class="values-section" id="teachers">
+  <div class="sec-inner">
+    <div class="stag">선생님에게</div>
+    <h2 class="stit">마이리딩수학에서<br>일 더 잘하는 9가지 방법</h2>
+    <p class="ssub">준비 없는 자는 교실에 들어가지 않습니다.<br>우리는 아이들의 시간을 훔치지 않겠다는 예의로 가르칩니다.</p>
+    <div class="values-grid">
+      <div class="val-card">
+        <div class="val-num">01</div>
+        <div class="val-title">준비된 설렘이 실력이다</div>
+        <p class="val-desc">수업 준비는 아이들의 시간을 <span class="val-highlight">훔치지 않겠다</span>는 예의이자, 단 1분도 <span class="val-highlight">버리지 않겠다</span>는 프로의 집착입니다.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">02</div>
+        <div class="val-title">힌트 전문가이지 정답지가 아니다</div>
+        <p class="val-desc">정답을 주입하는 것은 노동이지만, 정교한 힌트로 아이의 뇌를 스스로 폭발하게 만드는 것은 예술입니다.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">03</div>
+        <div class="val-title">권위주의와 비교는 자질 없음의 증거</div>
+        <p class="val-desc">우리는 오직 <span class="val-highlight">아이의 어제와 오늘만 다르게</span> 성장시킵니다. 타인과의 비교는 이곳에 없습니다.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">04</div>
+        <div class="val-title">10번 설명할 아량이 전문성이다</div>
+        <p class="val-desc">10번을 다시 말해도 처음 설명하는 것처럼 다정할 수 있는가? 그것이 당신의 실력입니다.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">05</div>
+        <div class="val-title">아이들을 서 있게 하지 마라</div>
+        <p class="val-desc">선생님의 설명을 듣기 위해 아이들이 줄을 서 있다면 시스템은 실패한 것입니다. 공간의 무질서를 방관하는 프로는 없습니다.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">06</div>
+        <div class="val-title">교육은 서비스업이다</div>
+        <p class="val-desc">부드럽고 존중하는 언어는 필수입니다. 거친 언어는 논리가 빈약하다는 방증입니다.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">07</div>
+        <div class="val-title">과정의 구조화가 수학의 본질이다</div>
+        <p class="val-desc">식을 세우지 못하는 티칭은 사기입니다. 아이가 풀이 과정의 논리를 스스로 세우고 설명하게 만드는 데 모든 역량을 집중합니다.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">08</div>
+        <div class="val-title">지혜의 식탁 외엔 철저히 독립하라</div>
+        <p class="val-desc">2주에 한 번, 책 토론과 식사로 철학을 싱크(Sync)합니다. 그 외엔 각자의 교실에서 완벽하게 홀로 섭니다.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">09</div>
+        <div class="val-title">관계는 수평적이되, 역할의 선은 선명하게</div>
+        <p class="val-desc">자유로운 제안과 경청은 성장을 위한 약속입니다. 모든 결과에 최종 책임을 지는 <span class="val-highlight">리더의 무게를 존중</span>하는 것이 프로의 품격입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 학생 9가지 -->
+<section class="student-section" id="students">
+  <div class="sec-inner">
+    <div class="stag">학생에게</div>
+    <h2 class="stit">마이리딩수학에서<br>공부 더 잘하는 9가지 방법</h2>
+    <div class="student-premise">
+      <div class="student-premise-text">
+        "공부는 나를 믿기 위한 게임이고,<br>
+        몰입은 그 게임의 <span>입장료</span>이다."<br>
+        <span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.5);font-style:italic">입장료를 지불하지 않을 거면 이곳에 의미 없이 앉아있을 자리는 없습니다.</span>
+      </div>
+    </div>
+    <div class="student-grid">
+      <div class="student-card">
+        <div class="s-num">01</div>
+        <div class="s-title">몰입은 네가 여기 왜 있는지에 대한 대답이다</div>
+        <p class="s-desc">딴짓으로 시간을 죽이는 건 여기서 하지 않는 일입니다. 몰입이라는 입장료를 지불하지 않을 거면 집에 가도 좋습니다.</p>
+      </div>
+      <div class="student-card">
+        <div class="s-num">02</div>
+        <div class="s-title">'모르겠어요'는 지적인 게으름이다</div>
+        <p class="s-desc">어느 줄, 어느 부분이 이해가 안 되는지 구체적으로 질문하십시오. 막연한 질문은 스스로 생각하기를 포기한 것입니다.</p>
+      </div>
+      <div class="student-card">
+        <div class="s-num">03</div>
+        <div class="s-title">'이거 맞아요?'는 불안의 증명이다</div>
+        <p class="s-desc">끝까지 풀고 너 자신을 믿으십시오. 제대로 풀었다면 선생님이 채점과 티칭으로 알려줄 것입니다.</p>
+      </div>
+      <div class="student-card">
+        <div class="s-num">04</div>
+        <div class="s-title">수학은 논리의 건축이다</div>
+        <p class="s-desc">숫자만 나열하는 건 낙서입니다. 식의 구조를 세우고 그 의미를 문장으로 쓸 수 있어야 진짜 공부입니다.</p>
+      </div>
+      <div class="student-card">
+        <div class="s-num">05</div>
+        <div class="s-title">설명할 수 있을 때 진짜 네 실력이다</div>
+        <p class="s-desc">답만 맞히는 건 운입니다. 내가 어떤 생각의 경로를 거쳐 이 결론에 도달했는지 선생님께 역설명하십시오.</p>
+      </div>
+      <div class="student-card">
+        <div class="s-num">06</div>
+        <div class="s-title">비교하고 싶으면 어제의 너를 데려와라</div>
+        <p class="s-desc">오직 어제의 너보다 단 한 줄이라도 더 깊게 고민했는가만 스스로에게 물으십시오.</p>
+      </div>
+      <div class="student-card">
+        <div class="s-num">07</div>
+        <div class="s-title">예의 없는 실력은 쓰레기다</div>
+        <p class="s-desc">선생님과 친구를 존중하지 않는 태도는 즉각 퇴원 대상입니다. 인성이 받쳐주지 않는 지식은 사회의 독이 됩니다.</p>
+      </div>
+      <div class="student-card">
+        <div class="s-num">08</div>
+        <div class="s-title">수학은 가장 안전한 게임이다</div>
+        <p class="s-desc">수학은 틀려도 죽지 않는 가장 안전한 게임입니다. 1시간만 너 자신을 믿고 이 게임에 몸을 던져보십시오. ^^</p>
+      </div>
+      <div class="student-card">
+        <div class="s-num">09</div>
+        <div class="s-title">고요는 타인의 몰입에 대한 예의다</div>
+        <p class="s-desc">누군가의 깊은 몰입을 깨뜨릴 권리는 누구에게도 없습니다. 고요함은 멋진 학생들이 갖춰야 할 최소한의 매너입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 클로징 인용구 -->
+<section class="closing-quote-section">
+  <div class="cq-inner">
+    <div class="cq-top">우리가 나누는 진심</div>
+    <div class="cq-text">
+      우리는 수많은 사람 중<br>
+      동시대를 살아가며 만난 특별한 인연입니다.<br><br>
+      아이에게는 <span class="hl">'공부가 재미있을 수 있게 도와준 좋은 어른'</span>으로,<br>
+      우리에게는 <span class="hl">'하나라도 더 가르쳐 주고 싶은 귀엽고 즐겁게 공부하던 아이들'</span>로.
+    </div>
+    <div style="height:24px"></div>
+    <div class="cq-sub">우리는 아이들의 생에 개입하는 가장 따뜻한 프로페셔널입니다.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <h2 class="cta-title">아이의 사고를 함께<br>설계하고 싶으신가요?</h2>
+    <p class="cta-sub">마이리딩수학은 구미에 위치한 수학·국어 통합학원입니다.<br>상담을 통해 아이의 사고 구조를 함께 진단해 드립니다.</p>
+    <div class="cta-btns">
+      <a href="/cdn-cgi/l/email-protection#7c1f1312081d1f083c11050e191d1815121b111d0814521f1311" class="btn-navy">상담 문의하기</a>
+      <a href="investors.html" class="btn-ghost-navy">투자자 · 파트너 페이지 →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">마이리딩<span>수학</span> · NI Corporation</div>
+  <div class="foot-copy">대표 정지윤 · 구미 · © 2025 NI Corporation. All ri
