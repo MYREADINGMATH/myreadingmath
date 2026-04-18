@@ -163,6 +163,62 @@ footer{background:#060d1c;padding:36px 6%;display:flex;justify-content:space-bet
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 .fu{animation:fadeUp .72s ease forwards}
 .d1{animation-delay:.1s;opacity:0}.d2{animation-delay:.22s;opacity:0}.d3{animation-delay:.36s;opacity:0}.d4{animation-delay:.50s;opacity:0}
+
+@media(max-width:768px){
+  nav{padding:0 4%}
+  .nav-links{display:none}
+  section{padding:60px 5%}
+  .hero{padding:100px 5% 60px}
+  .hero-inner,.space-grid,.founder-grid,.team-grid,
+  .prob-grid,.mastery-steps,.feat-grid,.val-grid,
+  .diff-cards,.biz-grid,.ev-grid,.needs-grid,
+  .values-grid,.student-grid,.mastery-loop{
+    grid-template-columns:1fr !important;
+  }
+  .hero-title,.stit,.ptitle,.cta-title,.cq-text{
+    font-size:clamp(20px,5vw,26px) !important;
+    line-height:1.45 !important;
+  }
+  .hero-sub,.ssub,.psub,.cta-sub,.hero-sub{font-size:13px !important}
+  .stats-inner{grid-template-columns:1fr 1fr !important;gap:20px !important}
+  .stat-n,.stat-big,.stat-l{font-size:30px !important}
+  .bridge-wrap{flex-direction:column !important;align-items:center !important}
+  .b-arrow,.barrow{transform:rotate(90deg);margin:6px auto}
+  .b-node,.bnode{width:80% !important}
+  .founder-grid,.teamgrid{grid-template-columns:1fr !important;gap:24px !important}
+  .f-card,.fcrd{width:100% !important}
+  .founder-strip{grid-template-columns:1fr !important;gap:20px !important}
+  .tb-body{grid-template-columns:1fr !important}
+  .tb-left{border-right:none !important;border-bottom:0.5px solid rgba(255,255,255,0.06)}
+  .roadmap .rm-item,.rm-item{grid-template-columns:65px 1fr !important;gap:10px !important}
+  .rm-chips,.rmchips{gap:5px}
+  .rm-chip,.rmchip{font-size:11px;padding:3px 9px}
+  .cta-btns,.hero-btns{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-ghost,.btn-teal,.btn-outline,.btn-navy{
+    text-align:center !important;padding:13px 20px !important;
+  }
+  .comp-table,.ctbl{font-size:11px}
+  .comp-table th,.comp-table td,.ctbl th,.ctbl td{padding:7px 9px}
+  .premise-inner{grid-template-columns:1fr !important}
+  .premise-item:first-child{border-right:none;padding-left:0;border-bottom:0.5px solid var(--border);padding-bottom:14px}
+  .premise-item{padding:14px 0 !important}
+  .needs-grid,.ngrid{grid-template-columns:1fr 1fr !important}
+  .card-stats{gap:10px}
+  footer{flex-direction:column;text-align:center;gap:8px}
+  .tablet-wrap,.app-wrap{margin-top:28px}
+  .diff-hero,.diffhd{flex-direction:column;gap:8px}
+  .biz-grid,.bizgrid{grid-template-columns:1fr !important}
+  .ev-grid{grid-template-columns:1fr !important}
+  .val-card,.vcard{padding:18px 14px !important}
+  .student-grid{grid-template-columns:1fr 1fr !important}
+}
+@media(max-width:480px){
+  .student-grid{grid-template-columns:1fr !important}
+  .needs-grid,.ngrid{grid-template-columns:1fr !important}
+  .stats-inner{grid-template-columns:1fr 1fr !important}
+  .hero-title,.stit{font-size:20px !important}
+  .cq-text{font-size:18px !important}
+}
 </style>
 </head>
 <body>

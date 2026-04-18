@@ -72,6 +72,27 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--navy);color:#fff;dis
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 .fu{animation:fadeUp .65s ease forwards}
 .d1{animation-delay:.05s;opacity:0}.d2{animation-delay:.15s;opacity:0}.d3{animation-delay:.28s;opacity:0}.d4{animation-delay:.42s;opacity:0}.d5{animation-delay:.56s;opacity:0}
+
+/* 반응형 — 모바일 */
+@media(max-width:640px){
+  .wrap{padding:28px 16px}
+  .logo{font-size:18px}
+  .logo-sub{margin-bottom:28px}
+  .question{font-size:15px;margin-bottom:32px}
+  .cards{grid-template-columns:1fr;gap:14px;margin-bottom:28px}
+  .choice-card{padding:24px 20px;border-radius:14px}
+  .card-warm .card-title,
+  .card-dark .card-title{font-size:20px !important;line-height:1.4}
+  .card-warm .card-desc,
+  .card-dark .card-desc{font-size:13px}
+  .card-warm .card-quote{font-size:12px}
+  .card-warm .card-btn,
+  .card-dark .card-btn{font-size:13px;padding:10px 16px;width:100%;justify-content:center}
+  .card-dark .card-stats{gap:12px}
+  .stat-mini-n{font-size:18px}
+  .bottom-tags{gap:7px}
+  .btag{font-size:10px;padding:4px 11px}
+}
 </style>
 </head>
 <body>
@@ -95,7 +116,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--navy);color:#fff;dis
       <div class="card-tag">학부모 · 학생</div>
       <div class="card-title">우리 아이를<br>보내고 싶은 분</div>
       <div class="card-desc">마이리딩수학의 교육 철학, 공간, 선생님과 학생에 대한 원칙을 소개합니다.</div>
-      <div class="card-quote">"정답을 주는 곳이 아니라,<br>스스로 판을 짜는 힘을 키우는 곳."</div>
+      <div class="card-quote">"12시는 12시 1분이 아니다."<br>약속의 무게를 아는 고결한 공간.</div>
       <div class="card-btn">학부모 · 학생 페이지 →</div>
     </a>
 
